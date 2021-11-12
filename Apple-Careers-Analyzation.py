@@ -6,21 +6,20 @@ import pandas as pd
 
 file1 = pd.read_csv('Apple-Careers-Developer.csv')
 file2 = pd.read_csv('Apple-Careers-Junior.csv')
+file3 = pd.read_csv('Apple-Careers-EarlyCareer.csv')
 
-df = pd.DataFrame(file1)
-df2 = pd.DataFrame(file2)
+df = pd.DataFrame(file3)
 
-keywords = ['Junior', 'Early Career']
+keywords = ['Junior', 'Early Career', 'Engineer', 'Developer']
 
 title = df['title']
 
-# BELOW DOWN - NOT WORKING
+keyword = title.str.contains('Early Career')
 
-main = title.str.contains('Junior')
+main_df = df[keyword]
 
-junior = df2[df2['title'].str.contains('Junior')]
-
-print(junior)
+main_df.to_csv('Main-Keyword.csv')
+print('File saved to CSV.')
 
 '''
 
