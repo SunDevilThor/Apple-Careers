@@ -7,7 +7,7 @@ import pandas as pd
 careers_list = []
 
 def request(x):
-    search_term = 'Early'
+    search_term = 'Junior'
     url = (f'https://jobs.apple.com/en-us/search?search={search_term}&sort=relevance&location=united-states-USA&page={x}&team=apps-and-frameworks-SFTWR-AF+cloud-and-infrastructure-SFTWR-CLD+core-operating-systems-SFTWR-COS+devops-and-site-reliability-SFTWR-DSR+engineering-project-management-SFTWR-EPM+information-systems-and-technology-SFTWR-ISTECH+machine-learning-and-ai-SFTWR-MCHLN+security-and-privacy-SFTWR-SEC+software-quality-automation-and-tools-SFTWR-SQAT+wireless-software-SFTWR-WSFT')
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15'}
     response = requests.get(url, headers=headers)
@@ -40,7 +40,7 @@ def parse(jobs):
 
 def output():
     df = pd.DataFrame(careers_list)
-    df.to_csv('Apple-Careers-EarlyCareer.csv')
+    df.to_csv('Apple-Careers-Junior.csv')
     print('Saved items to CSV file.')
 
 x = 1 
